@@ -1,0 +1,84 @@
+<script>
+{
+  let a = 3
+  let b = a * 10
+  console.log(b) // 30
+  a = 4
+  b = a * 10
+  console.log(b) // 40
+}
+
+/*
+    A B
+  1 4 40(fx = A1 * 10)
+*/
+
+/*
+  onAChanged(() => {
+    b = a * 10
+  })
+*/
+
+/*
+  <span class="cell b1"></span>
+
+  onAChanged(() => {
+    document
+      .querySelector('.cell.b1')
+      .textContent = state.a * 10
+  })
+*/
+
+/*
+  <span class="cell b1">
+    {{ state.a * 10 }}
+  </span>
+
+  onAChanged(() => {
+    view = render(state)
+  })
+*/
+
+{
+  let update, state
+  const onStateChanged = _update => {
+    update = _update
+  }
+  const setState = newState => {
+    state = newState
+    update()
+  }
+}
+
+/*
+  react.js
+  onStateChanged(() => {
+    view = render(state)
+  })
+  setState({ a: 5 })
+*/
+
+/*
+  onStateChanged(() => {
+    console.log(state.count)
+  })
+  This is the basic form of the dependency tracking systems as seen in Knockout.js, Meteor Tracker, Vue.js and MobX
+*/
+
+/*
+  Vue3 reactivity api
+
+  import { reactive, watchEffect } from 'vue'
+
+  const state = reactive({
+    count: 0
+  })
+
+  watchEffect(() => {
+    console.log(state.count)
+  }) // 0
+
+  state.count++ // 1
+*/
+
+</script>

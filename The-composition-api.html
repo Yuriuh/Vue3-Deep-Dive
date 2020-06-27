@@ -1,0 +1,70 @@
+<script>
+/*
+  Composition API = Reactivity API + Lifecycle hooks
+*/
+
+/*
+  import { reactive, watchEffect, onMounted } from 'vue'
+  export default {
+    setup() {
+      const state = reactive({ count: 0 })
+
+      watchEffect(() => console.log(state.count))
+
+      onMounted(() => console.log('mounted'))
+
+      return {
+        state,
+        increment: () => { state.count++ }
+      }
+    }
+  }
+*/
+
+import { reactive, ref, computed, watchEffect, watch, onMounted } from 'vue'
+
+function useFeature() {
+  onMounted(() => console.log('mounted!'))
+}
+
+export default {
+  props: ['id'],
+  // created() {
+  //   this.fetchData(this.id)
+  // },
+  // watch: {
+  //   id: 'fetchData'
+  // },
+  // methods: {
+  //   fetchData(id) {
+  //     // ...
+  //   }
+  // },
+  setup(props) {
+    // const state = reactive({ count: 0 })
+
+    const fetchedData = ref(null)
+    watchEffect(() => {
+      fetch(`url${props.id}`).then(res => res.json()).then(data => {
+        fetchedData.value = data
+      })
+    })
+
+    // const count = ref(0)
+    // const plusOne = computed(() => state.count + 1)
+    // watch([count, plusOne], ([count, plusOne], [oldCount, oldPlusOne]) => {
+
+    // })
+
+    // onMounted(() => console.log('mounted!'))
+    useFeature()
+
+    // Template Render Context
+    return {
+      state,
+      increment: () => { state.count++ }
+    }
+  }
+}
+
+</script>
