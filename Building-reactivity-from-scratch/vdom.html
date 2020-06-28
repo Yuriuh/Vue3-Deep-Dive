@@ -1,0 +1,42 @@
+<div id="app"></div>
+
+<script>
+// function render() {
+//   return h('div', [
+//     h('div', [
+//       h('span', 'hello')
+//     ])
+//   ])
+// }
+
+// Generate JavaScript like this
+
+// const vdom = {
+//   tag: 'div',
+//   children: [
+//     {
+//       tag: 'div',
+//       children: [
+//         {
+//           tag: 'span',
+//           children: 'hello'
+//         }
+//       ]
+//     }
+//   ]
+// }
+
+function h(tag, props, children) {
+
+}
+
+function mount(vnode, container) {
+
+}
+
+const vdom = h('div', { class: 'red' }, [
+  h('span', null, ['hello'])
+])
+
+mount(vdom, document.getElementById('app'))
+</script>

@@ -1,0 +1,46 @@
+<script>
+// Virtual DOM:
+/*
+  Decouples rendering logic from the actual DOM - makes it straightforward
+  to reuse it in non-browser environments, e.g. rendering to a string (SSR),
+  rendering to canvas/WebGL, or native mobile rendering.
+*/
+
+/*
+  Provides the ability to programmatically construct, inspect, clone
+  and create derivative structures using the full power of JavaScript
+*/
+</script>
+
+<script>
+/*
+Vue2 API
+render(h) {
+  return h('div', {
+    attrs: {
+      id: 'foo'
+    },
+    on: {
+      click: this.onClick
+    }
+  }, 'hello')
+}
+*/
+</script>
+
+<script>
+/*
+Vue 3 API
+- Flat props structure
+- Globally imported `h` helper
+
+import { h } from 'vue'
+
+render(h) {
+  return h('div', {
+    id: 'foo',
+    onClick: this.onClick,
+  }, 'hello')
+}
+*/
+</script>
